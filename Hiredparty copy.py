@@ -56,24 +56,20 @@ item_box.grid(row=2, column=1)
 number_box = Entry(frame)
 number_box.grid(row=3, column=1)
 
-
 # define a function that allows to create a calendar for date selecting
 def pick_date(event):
-    global cal, frame2,but
-    frame2 = LabelFrame(root)  # another frame within the root that stores the calendar function
-    frame2.pack() # showing the frame on the widget
-    cal = Calendar(frame2, selectmode='day', year=2023, month=5, day=22)
+    global frame, cal,but
+    cal = Calendar(frame, selectmode='day', year=2023, month=5, day=22)
     cal.grid(row=5, column=1)
     
     # button to confirm the date selected
-    but= Button(frame2, text='confirm', command=grab_date)   
+    but= Button(frame, text='confirm', command=grab_date)   
     but.grid(row=6, column=1)
 
 def grab_date(): 
     date_box.delete(0, END)
     date_box.insert(0, cal.get_date()) # insert the date picked from the calnedar into the date_box
     cal.destroy()
-    frame2.destroy()# clear the calendar and the frame as soon as the confirm button is clicked
     but.destroy()
 # create a date entry box   
 date_box = Entry(frame, textvariable=my_w)
@@ -112,7 +108,7 @@ def submit():
            msg='Enter the valid item please'
            messagebox.showerror('error',msg)
            # if item_box is empty or if item invloved any numbers, pop up an error message
-    
+           
     elif any(ch.isalpha() for ch in number) or len(number_box.get())==0:
            msg='Enter valid number of item please(1-500)'
            messagebox.showerror('error',msg)
