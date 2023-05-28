@@ -15,14 +15,12 @@ root = Tk()
 
 # Creating the title of this project
 root.title("Julie's Party Hire")
-
-
 # adding the instuctions
 instruction = Label(root, text="!!!! Instructions !!!!: Enter the correct information to the entry-boxes. Click submit button to insert the info to the table.")
-instruction.pack(pady=20)
+instruction.pack(pady=10)
 
 # Creating a frame for information editing
-frame = LabelFrame(root, text ='Customers Information', padx=100, pady=20)
+frame = LabelFrame(root, text ='Customers Information', padx=100, pady=10)
 frame.pack()
 
 
@@ -183,7 +181,7 @@ style.map("Treeview",
 
 # create a treeview frame
 tree_frame = Frame(root)
-tree_frame.pack(pady=20)
+tree_frame.pack(pady=10)
 
 # treeview scrollbar if needed
 tree_scroll = Scrollbar(tree_frame)
