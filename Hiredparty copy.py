@@ -16,6 +16,11 @@ root = Tk()
 # Creating the title of this project
 root.title("Julie's Party Hire")
 
+
+# adding the instuctions
+instruction = Label(root, text="!!!! Instructions !!!!: Enter the correct information to the entry-boxes. Click submit button to insert the info to the table.")
+instruction.pack(pady=20)
+
 # Creating a frame for information editing
 frame = LabelFrame(root, text ='Customers Information', padx=100, pady=20)
 frame.pack()
