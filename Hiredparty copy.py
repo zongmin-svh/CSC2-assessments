@@ -147,8 +147,6 @@ def clear():
     number_box.delete(0, END)
     date_box.delete(0, END)
     cal.destroy()
-    frame2.destroy()
-  
 
 # buttons
 button1 = Button(frame, text = 'Submit',command=submit) # submit the data
