@@ -231,12 +231,6 @@ delete = Button(root, text='Delete selected', command=delete_one)
 delete.pack(pady=5)
 
 
-
-
-
-
-
-
 # call the mainloop to be able to run it.
 root.mainloop()
 
