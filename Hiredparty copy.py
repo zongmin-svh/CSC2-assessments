@@ -134,7 +134,7 @@ def submit():
             
     elif len(date_box.get())==0 or any(ch.isalpha() for ch in date_box.get()):
            msg='Enter the valid date please'
-           messagebox.showerror('error',msg)  
+           messagebox.showerror('error',msg)
            # if the date_box is empty, pop up an error message
     else:
         # define the submit function that transfer the data from the entry boxes to the treeview table
