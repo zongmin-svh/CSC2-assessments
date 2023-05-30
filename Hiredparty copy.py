@@ -112,7 +112,12 @@ def submit():
            msg='Enter the valid item please'
            messagebox.showerror('error',msg)
            # if item_box is empty or if item invloved any numbers, pop up an error message
-    
+            
+    elif len(date_box.get())==0 or any(ch.isalpha() for ch in date_box.get()):
+           msg='Enter the valid date please'
+           messagebox.showerror('error',msg)
+           # if the date_box is empty, pop up an error message
+           
     elif any(ch.isalpha() for ch in number) or len(number_box.get())==0:
            msg='Enter valid number of item please(1-500)'
            messagebox.showerror('error',msg)
@@ -131,11 +136,7 @@ def submit():
             item_box.delete(0, END)
             number_box.delete(0, END)
             date_box.delete(0, END)  
-            
-    elif len(date_box.get())==0 or any(ch.isalpha() for ch in date_box.get()):
-           msg='Enter the valid date please'
-           messagebox.showerror('error',msg)
-           # if the date_box is empty, pop up an error message
+    
     else:
         # define the submit function that transfer the data from the entry boxes to the treeview table
         my_table.insert(parent='', index='end', values=(name_box.get(), receipt_box.get(), item_box.get(), number_box.get(), date_box.get()))
