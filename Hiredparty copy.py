@@ -104,7 +104,7 @@ def submit():
         # if there are numbers in name or less alpha means it's not a full name, pop up an error message
         
     elif len(receipt_box.get()) ==0 or any(ch.isalpha() for ch in receipt):
-        msg='Enter the valid receipt number please'
+        msg='Enter the valid receipt number please (numbers only)'
         messagebox.showerror('error',msg)
         # if receipt number entered involved a alpha, or it's empty, pop up an error message
         
