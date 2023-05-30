@@ -91,8 +91,13 @@ def submit():
     name=name_box.get()
     item=item_box.get()
     number=number_box.get()
+    value = int(number)
+    number.isdigit()
     # conditons listed
-    if len(name_box.get())==0 and len(receipt_box.get())==0 and len(item_box.get())==0 and len(number_box.get())==0 and len(date_box.get())==0:  
+    if value < 1 or value > 500:
+        msg='Enter valid number of item please(1-500)'
+        messagebox.showerror('error',msg)   
+    elif len(name_box.get())==0 and len(receipt_box.get())==0 and len(item_box.get())==0 and len(number_box.get())==0 and len(date_box.get())==0:  
         msg = 'Please fill in valid info'
         messagebox.showerror('error',msg)
         # if all the entry boxes are empty, pop up an errro message.
@@ -116,7 +121,6 @@ def submit():
            msg='Enter valid number of item please(1-500)'
            messagebox.showerror('error',msg)
            # if number_box is not number or if it is not between 1-500, or if it's empty, pop up an error message
-           
     elif len(date_box.get())==0 or any(ch.isalpha() for ch in date_box.get()):
            msg='Enter the valid date please'
            messagebox.showerror('error',msg)  
