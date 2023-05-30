@@ -83,25 +83,21 @@ date_box.bind('<1>', pick_date)
 
 
 
-
-
 # define submit function, plus the problem checker for the information filled in before submit to the treeview.
 def submit():
     receipt=receipt_box.get()
     name=name_box.get()
     item=item_box.get()
     number=number_box.get()
-    value = int(number)
+    '''
     number.isdigit()
-    # conditons listed
-    if value < 1 or value > 500:
-        msg='Enter valid number of item please(1-500)'
-        messagebox.showerror('error',msg)   
-    elif len(name_box.get())==0 and len(receipt_box.get())==0 and len(item_box.get())==0 and len(number_box.get())==0 and len(date_box.get())==0:  
+    value =int(number)
+    '''
+    # conditons listed   
+    if len(name_box.get())==0 and len(receipt_box.get())==0 and len(item_box.get())==0 and len(number_box.get())==0 and len(date_box.get())==0:  
         msg = 'Please fill in valid info'
         messagebox.showerror('error',msg)
         # if all the entry boxes are empty, pop up an errro message.
-        
     elif len(name_box.get())<5 or any(ch.isdigit() for ch in name):
         msg='Enter your valid full name please'
         messagebox.showerror('error',msg)
@@ -116,11 +112,26 @@ def submit():
            msg='Enter the valid item please'
            messagebox.showerror('error',msg)
            # if item_box is empty or if item invloved any numbers, pop up an error message
-           
+    
     elif any(ch.isalpha() for ch in number) or len(number_box.get())==0:
            msg='Enter valid number of item please(1-500)'
            messagebox.showerror('error',msg)
            # if number_box is not number or if it is not between 1-500, or if it's empty, pop up an error message
+    elif number.isdigit():
+        value = int(number)
+        if not (1 <= value <= 500):
+            msg='Enter valid number of item please(1-500)'
+            messagebox.showerror('error',msg)
+        else:
+            # define the submit function that transfer the data from the entry boxes to the treeview table
+            my_table.insert(parent='', index='end', values=(name_box.get(), receipt_box.get(), item_box.get(), number_box.get(), date_box.get()))
+            # clear the boxes once the date has been submitted
+            name_box.delete(0, END)
+            receipt_box.delete(0, END)
+            item_box.delete(0, END)
+            number_box.delete(0, END)
+            date_box.delete(0, END)  
+            
     elif len(date_box.get())==0 or any(ch.isalpha() for ch in date_box.get()):
            msg='Enter the valid date please'
            messagebox.showerror('error',msg)  
@@ -134,7 +145,6 @@ def submit():
         item_box.delete(0, END)
         number_box.delete(0, END)
         date_box.delete(0, END)  
-
 
 
 
